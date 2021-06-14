@@ -1,0 +1,20 @@
+FROM node:14
+
+WORKDIR /app
+
+COPY package.json /app
+
+RUN yarn install
+
+
+ENV NODE_ENV production
+ENV NUXT_HOST 0.0.0.0
+ENV NUXT_PORT 3000
+
+COPY . /app
+
+RUN yarn build
+
+EXPOSE 3000
+
+CMD ["yarn", "start"]
