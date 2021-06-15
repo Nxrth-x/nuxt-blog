@@ -36,6 +36,9 @@ div.markdown-content-wrapper {
   width: 100%;
   max-width: 50rem;
 
+  font-size: 1.25rem;
+  color: $gray-dark;
+
   & > * {
     margin: 1.5rem 0;
   }
@@ -66,11 +69,6 @@ div.markdown-content-wrapper {
     font-size: 2.25rem;
   }
 
-  p {
-    font-size: 1.25rem;
-    color: $gray-dark;
-  }
-
   strong {
     color: $black;
   }
@@ -84,7 +82,7 @@ div.markdown-content-wrapper {
   }
 
   ul {
-    list-style: none;
+    margin-left: 1.5rem;
   }
 
   code {
@@ -94,7 +92,7 @@ div.markdown-content-wrapper {
 
     font-size: 0.9rem;
 
-    background: rgba(108, 117, 125, 0.125);
+    background: rgba(108, 117, 125, 0.25);
   }
 
   pre {
@@ -103,14 +101,23 @@ div.markdown-content-wrapper {
 
     border-radius: 0.5rem;
 
-    background: rgba(108, 117, 125, 0.125);
+    background: rgba(108, 117, 125, 0.25);
 
     code {
       background: transparent;
 
       font-size: 1rem;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       color: $black;
+    }
+  }
+
+  a {
+    color: $red;
+    transition: $transition;
+
+    &:hover {
+      color: $pink;
     }
   }
 }

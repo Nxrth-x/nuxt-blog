@@ -12,4 +12,10 @@ class PostAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Like)
+@admin.register(Like)
+class LikeAdmin(admin.ModelAdmin):
+    list_display = [
+        "id",
+        "post",
+        "ip",
+    ]

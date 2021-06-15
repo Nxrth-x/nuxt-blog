@@ -34,10 +34,13 @@ footer {
   color: $gray;
 
   h1 {
+    // Fix for cutting the text
+    padding-right: 1rem;
     margin: 1rem 0;
-    letter-spacing: -2px;
 
     width: fit-content;
+
+    letter-spacing: -2px;
 
     background: linear-gradient(90deg, $pink, $red, $orange);
     -webkit-text-fill-color: transparent;

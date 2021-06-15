@@ -7,7 +7,7 @@
       <MarkdownContent :content="post.content" :excerpt="post.excerpt" />
       <div class="like">
         <p>{{ post.likes }}</p>
-        <button>
+        <button @click="handleClick">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -30,14 +30,9 @@
 
 <script>
 export default {
-  data: () => ({
-    post: {},
-  }),
   async asyncData({ $axios, params, error }) {
     try {
-      const post = await $axios.$get(
-        `http://localhost:8000/api/post/${params.slug}`
-      );
+      const post = await $axios.$get(`post/${params.slug}`);
 
       return {
         post,
@@ -46,6 +41,17 @@ export default {
       console.log(err);
       error("Page not found. :(");
     }
+  },
+  methods: {
+    async handleClick() {
+      const { slug } = this.$route.params;
+      const axios = this.$axios;
+
+      try {
+        await axios.$post(`post/${slug}/like`);
+        this.post.likes++;
+      } catch {}
+    },
   },
 };
 </script>
@@ -57,6 +63,7 @@ h1.title {
   margin: 2rem 0;
 
   font-size: 6rem;
+  letter-spacing: -2px;
   line-height: 6.5rem;
 
   @media (max-width: 720px) {

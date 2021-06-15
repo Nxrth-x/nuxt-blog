@@ -4,8 +4,8 @@
       <p>N</p>
     </div>
     <div class="links">
-      <a href="#">Blog</a>
-      <a href="#">About</a>
+      <nuxt-link to="/" href="#">Blog</nuxt-link>
+      <nuxt-link to="/" href="#">About</nuxt-link>
     </div>
   </header>
 </template>
